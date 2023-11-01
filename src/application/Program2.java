@@ -38,7 +38,9 @@ public class Program2 {
 		System.out.println("=== TEST 5: Delete =======");
 		int id = sc.nextInt();
 		departmentDao.deleteById(id);
-		System.out.println("delete completed!");		
+		System.out.println("delete completed!");
+		
+		sc.close();
 
 	}
 }
