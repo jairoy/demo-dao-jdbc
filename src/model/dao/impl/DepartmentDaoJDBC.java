@@ -44,22 +44,38 @@ public class DepartmentDaoJDBC implements DepartmentDao {
 				}
 				DB.closeResultSet(rs);
 			}else {
-				throw new DbException("Unexpected Error! No rows affected!" );
-			}
-				
+				throw new DbException("Unexpected Error! No rows affected!");
+			}				
 			
 		}catch(SQLException e){
 			throw new DbException(e.getMessage());
 			
 		}finally {
-			DB.closeStatement(st);
+			DB.closeStatement(st);			
 		}	
 
 	}
 
 	@Override
 	public void update(Department obj) {
-		// TODO Auto-generated method stub
+		PreparedStatement st = null;
+		try {
+			st = conn.prepareStatement(
+					"update department "
+					+ "set name = ?"
+					+ "where id = ? ");
+					
+			st.setString(1, obj.getName());
+			st.setInt(2, obj.getId());
+			
+			st.executeUpdate();
+			
+		}catch(SQLException e){
+			throw new DbException(e.getMessage());
+			
+		}finally {
+			DB.closeStatement(st);
+		}
 
 	}
 

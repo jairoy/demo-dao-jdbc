@@ -23,10 +23,15 @@ public class Program2 {
 			System.out.println(dep);			
 		}
 		
-		System.out.println("=== TEST 3: Insert =======");
+		/*System.out.println("=== TEST 3: Insert =======");
 		Department dep = new Department(7, "Books");
 		departmentDao.insert(dep);
-		System.out.println("Inserted new Id: " +  dep.getId());					
+		System.out.println("Inserted new Id: " +  dep.getId());*/
+		
+		System.out.println("=== TEST 4: Update =======");
+		department = new Department(7,"Games");
+		departmentDao.update(department);	
+		System.out.println("update completed!");
 
 	}
 }
