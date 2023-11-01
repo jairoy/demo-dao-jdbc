@@ -20,9 +20,13 @@ public class Program2 {
 		List<Department> list = departmentDao.findall();
 		for(Department dep : list){
 			
-			System.out.println(dep);
-			
+			System.out.println(dep);			
 		}
+		
+		System.out.println("=== TEST 3: Insert =======");
+		Department dep = new Department(7, "Books");
+		departmentDao.insert(dep);
+		System.out.println("Inserted new Id: " +  dep.getId());					
 
 	}
 }
